@@ -21,3 +21,7 @@ facts.json
 runs/dev/
 runs/pending*.json*
 runs/spend.json
+
+# журналы живого бота: в них переписка коллег, в репозиторий не попадают (журнал замера 16.10 оставлен)
+runs/calls-*.jsonl
+!runs/calls-20261016.jsonl

@@ -25,6 +25,10 @@ MCP_URL = os.getenv("MCP_URL", "")
 
 TEAM = json.loads((DATA / "team.json").read_text(encoding="utf-8"))
 OWNER = TEAM["owner"]
+# живой бот: настоящий username владельца из .env важнее демо-ника из team.json
+if os.getenv("OWNER_USERNAME"):
+    OWNER["username"] = os.environ["OWNER_USERNAME"].lstrip("@").lower()
+    OWNER["name_forms"] = sorted(set(OWNER["name_forms"]) | {OWNER["username"], "@" + OWNER["username"]})
 
 
 def api_key() -> str:
